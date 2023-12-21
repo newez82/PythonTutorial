@@ -1,3 +1,4 @@
+"""VSC and git tutorial"""
 import sys
 
 # print(sys.version)
@@ -9,5 +10,6 @@ def greet(who_to_greet):
     return greeting
 
 
-print(greet("Chin"))
+greet_person = greet("Chin")
+print(greet_person)
 print("")
