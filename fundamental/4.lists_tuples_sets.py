@@ -31,7 +31,7 @@ print(
 # a list within a list instead of each indiviual values from courses_2 to courses list
 # i.e.
 # courses.append(courses_2) will give us the following output
-# ['History', 'Math', 'Physics', 'CompSci', 'Art', ['Art', 'Education']
+# ['History', 'Math', 'Physics', 'CompSci', 'Art', ['Art', 'Education']]
 courses_2 = ["Art", "Education"]
 courses.extend(courses_2)
 print("Add mulitple values into a list using extend() method:", courses)
