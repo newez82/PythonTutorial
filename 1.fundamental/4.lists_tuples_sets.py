@@ -1,6 +1,8 @@
 """Lists and Tuples allow to work on sequential data,
 Sets are unordered collections of values with no duplicates.
 """
+from operator import attrgetter
+
 # Lists
 courses = ["History", "Math", "Physics", "CompSci"]
 
@@ -70,6 +72,52 @@ print(
     "Sort the list without altering the original list by using sorted() method:",
     sorted_courses,
 )
+
+# Sort value by ignoring the negative using sorted() method with key=abs
+# it runs each element through this absolute value function before it makes
+# the comparsion
+li_num = [-6, -5, -4, 1, 2, 3]
+sorted_li_num = sorted(li_num, key=abs)
+print(
+    "ort absolute value using sorted() method by passing key=abs parameter",
+    sorted_li_num,
+)
+
+
+class Employee:
+    """Sort Employee Object"""
+
+    def __init__(self, name, age, salary):
+        self.name = name
+        self.age = age
+        self.salary = salary
+
+    def __repr__(self):
+        return f"({self.name},{self.age}, ${self.salary})"
+
+
+employee1 = Employee("Carl", 37, 70000)
+employee2 = Employee("Sarah", 29, 80000)
+employee3 = Employee("John", 43, 90000)
+
+employees = [employee1, employee2, employee3]
+
+
+def e_sort(employee):
+    """Custom Sort function"""
+    return employee.name
+
+
+sorted_employees = sorted(employees, key=e_sort)
+print("Sorted employee objects using custom e_sort() method:", sorted_employees)
+
+sorted_employees_lambda = sorted(employees, key=lambda e: e.age)
+print("Sorted employee objects using lambda function:", sorted_employees_lambda)
+
+# Sorted employee objects using attrgetter library
+sorted_employees_attrgetter = sorted(employees, key=attrgetter("salary"))
+print("Sorted employee objects using attrgetter library:", sorted_employees_attrgetter)
+
 
 # Get the min number out of the list by using min() method
 print(
@@ -145,6 +193,10 @@ print("Tuples is immutable:", tuple_1)
 empty_tuple = ()
 empty_tuple = tuple()
 
+# tuple doesn't have sort() method, it has to use sorted() function
+tup = (9, 1, 8, 2, 7, 3, 6, 4, 5)
+s_tup = sorted(tup)
+print("Sort tuple using sorted() method", s_tup)
 
 # Set is unordered and no duplicate
 set_1 = {"History", "Math", " Physics", " CompSci"}

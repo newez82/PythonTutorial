@@ -77,6 +77,10 @@ print(
     "Get all keys and values from dictionary by using items() method:", student.items()
 )
 
+# sorted() function will sort the key in dictionary
+s_dict = sorted(student)
+print("Sorted() function sort key in the dictionary:", s_dict)
+
 # Loop throught they key and values using for loop
 print("Loop throught they key and values using for loop:")
 for key, value in student.items():
