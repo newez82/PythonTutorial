@@ -1,0 +1,106 @@
+pip is a way for us to install additional packages that allow us to add a ton of functinality that doesn't exists in the Python standard library.
+Virtual environment is a way for us to have a specific environment for each project or application that we're building.
+Use pip to handle package manage and virtual env to handl virtual environments.
+pipenv can be handled by one tool that simplifies the process.
+
+install pipenv with the following command:
+pip install pipenv
+
+pipenv will install the packages that we want with pipenv 
+pipenv install requests
+
+deactivate environment completely by using exit command, using deactivate won't exit completely because pipenv launches a subshell to activate the environment.
+
+run commands in our environment wihtout activating it by using pipenv run command.
+- pipenv run Python
+- pipenv run Python script.py
+
+requirments.txt file has all of the dependencies and packageas that a project needs in a text file.
+pipenv install -r ../snippets/requirements.txt
+
+display dependencies and add into the requirements text file.
+- pipenv lock -r
+
+install a project in dev environment that might not need in prod.
+- pipenv install pytest --dev
+
+uninstall the dependencies
+- pipenv uninstall pytest
+
+recreate virtual environment using command line below.
+pipenv --python 3.6
+
+remove the virtual environment
+pipenv --rm
+
+create the virtual environment from pip file.
+pipenv install
+
+give us the path of virtual environment
+pipenv --venv
+
+check package safety
+pipenv check 
+
+see the map of what depends on
+pipenv graph
+
+create or update pipefile.lock with current dependencies 
+pipenv lock
+
+install everything from pipefile.lock instead of default pipefile
+pipenv install --ignore-pipfile
+
+create new virtual environment
+python -m venv project_env
+
+activate virtual environment
+venv0\scripts\activate.bat
+
+#######################################################
+                pip package management
+#######################################################
+Check the packages that installed in the environment
+pip list
+
+give us a list of packages in a correct form for requirements.txt file
+pip freeze
+copy the output and past it in the requirements.txt file.
+
+deactivate virtual environment
+deactivate
+
+delete virtual environment with /s to delete entire tree
+rmdir venv0 /s
+
+install the list of packages from the requirements file
+pip install -r requirements.txt
+
+with virtual environment with system packages
+python -m venv venv0 --system-site-packages
+
+list the packages that only install in the virtual environment
+pip list --local
+
+Check where python installed
+where Python
+
+uninstall the package
+pip uninstall Pympler
+
+check any outdated package
+pip list -o 
+pip list --outdated
+
+update to latest package
+pip install -U package name
+
+out the packages into a requrements file
+pip freeze > requirements.txt
+
+update a list of outdated packages
+pip freeze --local | grep -v '^\-e' | cut -d = -f l | xargs - nl pip install -U
+# pip freeze --local grap the list of package locally
+# grep -v '^\-e' skip -e package definition
+# cut -d = -f l set delimiter to a equal sign and return first argument back
+# xargs - nl pip install -U grab each argument and perform the upgrade
