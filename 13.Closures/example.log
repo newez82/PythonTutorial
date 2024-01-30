@@ -1,0 +1,8 @@
+INFO:root:Running add with arguments (3, 3)
+INFO:root:Running add with arguments (4, 5)
+INFO:root:Running substract with arguments (10, 5)
+INFO:root:Running substract with arguments (20, 10)
+INFO:root:Running add function with arguments (3, 3)
+INFO:root:Running add function with arguments (4, 5)
+INFO:root:Running substract function with arguments (10, 5)
+INFO:root:Running substract function with arguments (20, 10)
