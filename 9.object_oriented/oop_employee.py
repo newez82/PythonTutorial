@@ -16,6 +16,7 @@
     9. @property decorators - getters, setters and deleters allows us to define a method and we can access
         it like an attribute with
 """
+
 import datetime
 
 
@@ -107,12 +108,17 @@ class Employee:
             return False
         return True
 
-    # unambiguous representation of the object, it used for debugging and logging,
+    # unambiguous representation of the object that can pass it to eval,
+    # which mean it can put in Python and run it as a command.
+    # i.e. datatime.datetime(2015, 6, 11, 4, 35, 48, 528251, tzinfo=pytz.UTC)
+    # it used for debugging and logging.
     # it used by developer.
     def __repr__(self):
         return f"Employee('{self.first}','{self.last}','{self.pay}')"
 
-    # readable representation of the object, it used as a dispaly to the end-user.
+    # readable representation of the object.
+    # i.e. 2015-06-11 05:20:48.939878+00:00
+    # it used as a dispaly to the end-user.
     def __str__(self):
         return f"'{self.fullname}' - '{self.email}'"
 

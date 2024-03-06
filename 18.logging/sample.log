@@ -1,0 +1,23 @@
+2024-03-05 14:24:45,755:__main__:Add: 20 + 30 = 50
+2024-03-05 14:24:45,755:__main__:Sub: 20 - 30 = -10
+2024-03-05 14:24:45,755:__main__:Mul: 20 * 30 = 600
+2024-03-05 14:24:45,755:__main__:Div: 20 / 30 = 0.6666666666666666
+2024-03-05 14:28:16,347:__main__:Tried to divide by zero
+2024-03-05 14:28:51,357:__main__:Tried to divide by zero
+Traceback (most recent call last):
+  File "c:\Users\chin.p.ho\Documents\Python Tutorial\18.logging\log_sample.py", line 58, in divide
+    result = x / y
+             ~~^~~
+ZeroDivisionError: division by zero
+2024-03-05 14:30:45,763:__main__:Tried to divide by zero
+Traceback (most recent call last):
+  File "c:\Users\chin.p.ho\Documents\Python Tutorial\18.logging\log_sample.py", line 63, in divide
+    result = x / y
+             ~~^~~
+ZeroDivisionError: division by zero
+2024-03-05 14:31:31,123:__main__:Tried to divide by zero
+Traceback (most recent call last):
+  File "c:\Users\chin.p.ho\Documents\Python Tutorial\18.logging\log_sample.py", line 64, in divide
+    result = x / y
+             ~~^~~
+ZeroDivisionError: division by zero
