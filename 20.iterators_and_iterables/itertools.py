@@ -6,6 +6,7 @@
 """
 
 import itertools
+import operator
 
 # count() method simply returns an iterator that count, if no arguement passed in, it will
 # start at 0 and count bout by 1 each iteration. it will never stop if using for or while
@@ -222,3 +223,65 @@ for take_while_item in take_while_result:
         "take value from the numbers list until the value that returned false:",
         take_while_item,
     )
+
+#################################################################
+# accumulate() method will takes an iterable and returns
+# accumulated sums of each item that is sees and it keeps
+# using additiona by default but can use other functions
+#################################################################
+accumulate_result = itertools.accumulate(numbers)
+for accumulate_item in accumulate_result:
+    print(
+        "accumulate reuslt:",
+        accumulate_item,
+    )
+
+# pass in mulitply function instead of default addition for
+# accumulate() method
+accumulate_multiply_result = itertools.accumulate(numbers, operator.mul)
+for accumulate_multiply_item in accumulate_multiply_result:
+    print(
+        "accumulate multiply reuslt:",
+        accumulate_multiply_item,
+    )
+
+#################################################################
+# groupby() method will go through an iterable and group
+# values based on a certain key and it will return a stream of
+# tuples. Tuples consist of the key that the items were grouped
+# on and 2nd value of the tuple is an iterator that contains
+# all of the items that were grouped by that key.
+#################################################################
+people = [
+    {"name": "John Doe", "city": "Gotham", "state": "NY"},
+    {"name": "Jane Doe", "city": "Kings Landing", "state": "NY"},
+    {"name": "Corey Schafer", "city": "Boulder", "state": "CO"},
+    {"name": "Al Einstein", "city": "Denver", "state": "CO"},
+    {"name": "John Henry", "city": "Hinton", "state": "WV"},
+    {"name": "Randy Moss", "city": "Rand", "state": "WV"},
+    {"name": "Nicole K", "city": "Asheville", "state": "NC"},
+    {"name": "Jim Doe", "city": "Charlotte", "state": "NC"},
+    {"name": "Jane Taylor", "city": "Faketown", "state": "NC"},
+]
+
+
+# group the people the state the where from
+# group by is different than group by in SQL
+# it needed to be sorted before hand
+def get_state(person):
+    return person["state"]
+
+
+person_group = itertools.groupby(people, get_state)
+
+for key, group in person_group:
+    print(key, len(list(group)))
+    for person in group:
+        print(person)
+
+
+#################################################################
+# T() method replicate iterator easily,
+# once copied, we should not use the original iterator.
+#################################################################
+copy1, copy2 = itertools.tee(person_group)
