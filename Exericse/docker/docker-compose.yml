@@ -1,0 +1,35 @@
+version: "3.8"
+services:
+  web:
+    # build from docker file exists in frontend folder
+    build: ./frontend
+    # port mapping to map port 3000 of the host to port 3000 of the container
+    # running this image
+    ports:
+      - 3000:3000
+  api:
+    # build from docker file exists in backend folder
+    build: ./backend
+    ports:
+      - 3001:3001
+    # evnironment variable where the DB is
+    evnironment:
+      # db is the host
+      # dbname is vidly
+      # the complete URL is connection string
+      DB_URL: mongodb://db/vidly
+  db:
+    # pull image from dockerhub
+    image: mongo:4.0-xenial
+    ports:
+      - 27017:27017
+    # volumes to store the data, map this volume to a directory inside the container
+    # anything written inside the /data/db directory is outside of the container in 
+    # our volume
+    volumes:
+      # vidly is the name of this application
+      - vidly: /data/db
+
+# define the volumes before we can use it above
+volumes:
+  vidly:

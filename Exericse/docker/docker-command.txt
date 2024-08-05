@@ -1,0 +1,91 @@
+- docker file is a plain text file that includes instructions that docker 
+  use to package up application into an image. This image contains everything
+  our application needs to run, including
+    - cut down OS
+    - runtime environment
+    - applicaiton files
+    - third party libraries
+    - environment variables
+
+- docker starts a container using an image, container is a process that has its own
+  file system which is provided by the image.
+
+- docker command to package up our application
+    - docker build -t hello-docker .
+        -t is a tag
+        -. tell docker which directory to find the docker file
+
+- to see all images in this computer
+    - docker images
+    - docker image ls
+        -ls stands for list
+
+- run the image
+    - docker run hello-docker
+
+- publish docker to docker hub
+
+- labs.play-with-docker.command can run your image on the web 
+
+- docker run will pull the image behind the scene and start the container
+    - docker run ubuntu
+
+- docker ps to show a list of docker active processes or containers
+- docker ps -a to show stopped container as well
+
+- run a container
+    - docker run -it ubuntu
+        -it means interactive 
+
+- linux command
+    - echo $0 shows the current directory
+    - # means high prviledge
+    - $ means normal user
+    - /bin/bash means bin directory has a program called Born again Shell
+        - Steve Bourne is the first person who created a shell program. bash is 
+          reference to Steve Bourne. Bash is an enhanced version of hte original
+          shell program.
+    - history can see all the commands we have executed lately. we can pick the command
+      from the list using ! along with the index number that we wan to execute the command
+      again:
+        !2
+    - pwd stands for print working directory
+    - ls -1 list directory per line
+    - ls -l for long listing with more detail
+    
+- package managers
+    - apt stands for advanced package tool
+    - install nano editor
+        - apt list to show all the packages that have installed
+        - apt update to update the apt database if apt install not able to install nano
+        - apt install nano
+    - always run apt update before apt install
+    - apt remove nano to delete nano editor
+
+- linux has a root directory on top of the hierarchy and a bunch of standard directories below
+    - bin for binary or programs
+    - boot for all the files related to booting
+    - dev for access devices that are stored in dev directory
+    - etc for editable text configuration, it contains configuration files
+    - home for users
+    - root for root user
+    - lib for library files like library dependencies
+    - var stands for variables like log files, application and data
+    - proc includes files that represent running processes
+
+
+- docker-compose build to build the images
+- docker-compose build --no-cache to force rebuild the images
+- docker-compose up start the applicaiton, if image is not there, it will build automatically
+- docker-compose up --build or docker-compose -d (detach model - run in background) combine 2 options build and up
+- docker-compose ps list out the active containers
+- docker-compose down to stop and remove these containers
+
+- docker compose will automatically create a network and add our containers on that network, so the 
+  containers can talk to each other.
+    - docker network ls to see all the netowrks on this machine
+    - execute the conatiner in interactive mode with container id to run in shell as root user
+        - docker exec -it -u root 8c6 sh
+    - docker comes with the DNS server that contains the name and ip of these containers, inside
+      the container, it has a component called DNS resolver. DNS resolver talks to DNS Server to
+      find the ip address of the target container.
