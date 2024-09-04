@@ -1,0 +1,72 @@
+[
+  {
+    "id": 1,
+    "name": "iPhone 12",
+    "category": "Electronics",
+    "quantity": 10,
+    "price": 899.99
+  },
+  {
+    "id": 2,
+    "name": "Nike Air max 90",
+    "category": "Clothing",
+    "quantity": 25,
+    "price": 119.99
+  },
+  {
+    "id": 3,
+    "name": "KitechenAid Stand Mixer",
+    "category": "Home Appliances",
+    "quantity": 5,
+    "price": 299.99
+  },
+  {
+    "id": 4,
+    "name": "The Great Gatsby",
+    "category": "Books",
+    "quantity": 50,
+    "price": 12.99
+  },
+  {
+    "id": 5,
+    "name": "L'Oreal Paris Mascara",
+    "category": "Beauty",
+    "quantity": 100,
+    "price": 9.99
+  },
+  {
+    "id": 6,
+    "name": "Yoga Mat",
+    "category": "Sports",
+    "quantity": 30,
+    "price": 29.99
+  },
+  {
+    "id": 7,
+    "name": "Samsung 4K Smart TV",
+    "category": "Electronics",
+    "quantity": 8,
+    "price": 799.99
+  },
+  {
+    "id": 8,
+    "name": "Levi's Jeans",
+    "category": "Clothing",
+    "quantity": 15,
+    "price": 49.99
+  },
+  {
+    "id": 9,
+    "name": "Dyson Vacuum Cleaner",
+    "category": "Home Appliances",
+    "quantity": 3,
+    "price": 399.99
+  },
+  {
+    "id": 10,
+    "name": "Harry Potter Series",
+    "category": "Books",
+    "quantity": 20,
+    "price": 15.99
+  }
+]
