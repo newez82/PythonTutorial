@@ -25,5 +25,3 @@ df = spark.createDataFrame(data, ["Name", "Age"])
 
 # Show the DataFrame
 df.show()
-
-

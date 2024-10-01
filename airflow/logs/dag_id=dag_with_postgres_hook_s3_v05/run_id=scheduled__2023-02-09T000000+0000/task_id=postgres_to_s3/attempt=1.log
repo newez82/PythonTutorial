@@ -1,0 +1,27 @@
+[2024-09-25T22:01:32.492+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2024-09-25T22:01:32.597+0000] {taskinstance.py:2612} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: dag_with_postgres_hook_s3_v05.postgres_to_s3 scheduled__2023-02-09T00:00:00+00:00 [queued]>
+[2024-09-25T22:01:32.627+0000] {taskinstance.py:2612} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: dag_with_postgres_hook_s3_v05.postgres_to_s3 scheduled__2023-02-09T00:00:00+00:00 [queued]>
+[2024-09-25T22:01:32.631+0000] {taskinstance.py:2865} INFO - Starting attempt 1 of 1
+[2024-09-25T22:01:32.938+0000] {taskinstance.py:2888} INFO - Executing <Task(PythonOperator): postgres_to_s3> on 2023-02-09 00:00:00+00:00
+[2024-09-25T22:01:33.116+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'dag_with_postgres_hook_s3_v05', 'postgres_to_s3', 'scheduled__2023-02-09T00:00:00+00:00', '--job-id', '441', '--raw', '--subdir', 'DAGS_FOLDER/dag_with_postgres_hooks_s3.py', '--cfg-path', '/tmp/tmpthliaka0']
+[2024-09-25T22:01:33.124+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=115042) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2024-09-25T22:01:33.170+0000] {standard_task_runner.py:105} INFO - Job 441: Subtask postgres_to_s3
+[2024-09-25T22:01:33.209+0000] {standard_task_runner.py:72} INFO - Started process 115055 to run task
+[2024-09-25T22:01:33.860+0000] {task_command.py:467} INFO - Running <TaskInstance: dag_with_postgres_hook_s3_v05.postgres_to_s3 scheduled__2023-02-09T00:00:00+00:00 [running]> on host 1e186c4a8a03
+[2024-09-25T22:01:34.910+0000] {taskinstance.py:3131} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='chin' AIRFLOW_CTX_DAG_ID='dag_with_postgres_hook_s3_v05' AIRFLOW_CTX_TASK_ID='postgres_to_s3' AIRFLOW_CTX_EXECUTION_DATE='2023-02-09T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2023-02-09T00:00:00+00:00'
+[2024-09-25T22:01:34.952+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2024-09-25T22:01:35.032+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/utils/operator_helpers.py:175 AirflowContextDeprecationWarning: Accessing 'next_ds_nodash' from the template is deprecated and will be removed in a future version. Please use '{{ data_interval_end | ds_nodash }}' instead.
+[2024-09-25T22:01:35.124+0000] {base.py:84} INFO - Retrieving connection 'postgres_local'
+[2024-09-25T22:01:35.253+0000] {dag_with_postgres_hooks_s3.py:37} INFO - query b"select * from orders where date >='20230209' and date <= '20230210'":
+[2024-09-25T22:01:35.256+0000] {dag_with_postgres_hooks_s3.py:38} INFO - cursor 0:
+[2024-09-25T22:01:35.274+0000] {dag_with_postgres_hooks_s3.py:44} INFO - <cursor object at 0x7fc8837ef010; closed: 0>
+[2024-09-25T22:01:35.276+0000] {dag_with_postgres_hooks_s3.py:49} INFO - Saved orders data in text file: dags/get_orders_20230209.txt
+[2024-09-25T22:01:35.365+0000] {base.py:84} INFO - Retrieving connection 'minio_conn'
+[2024-09-25T22:01:35.374+0000] {connection_wrapper.py:388} INFO - AWS Connection (conn_id='minio_conn', conn_type='aws') credentials retrieved from login and password.
+[2024-09-25T22:01:37.999+0000] {dag_with_postgres_hooks_s3.py:61} INFO - Order file %s has been pushed to S3!, f.name
+[2024-09-25T22:01:38.021+0000] {python.py:240} INFO - Done. Returned value was: None
+[2024-09-25T22:01:38.103+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2024-09-25T22:01:38.110+0000] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=dag_with_postgres_hook_s3_v05, task_id=postgres_to_s3, run_id=scheduled__2023-02-09T00:00:00+00:00, execution_date=20230209T000000, start_date=20240925T220132, end_date=20240925T220138
+[2024-09-25T22:01:38.659+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2024-09-25T22:01:38.800+0000] {taskinstance.py:3900} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-09-25T22:01:38.811+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

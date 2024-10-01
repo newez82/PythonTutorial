@@ -1,0 +1,26 @@
+[2024-09-25T22:39:28.049+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2024-09-25T22:39:28.174+0000] {taskinstance.py:2612} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: dag_with_postgres_hook_s3_v06.postgres_to_s3 scheduled__2024-03-07T00:00:00+00:00 [queued]>
+[2024-09-25T22:39:28.255+0000] {taskinstance.py:2612} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: dag_with_postgres_hook_s3_v06.postgres_to_s3 scheduled__2024-03-07T00:00:00+00:00 [queued]>
+[2024-09-25T22:39:28.343+0000] {taskinstance.py:2865} INFO - Starting attempt 1 of 1
+[2024-09-25T22:39:28.567+0000] {taskinstance.py:2888} INFO - Executing <Task(PythonOperator): postgres_to_s3> on 2024-03-07 00:00:00+00:00
+[2024-09-25T22:39:28.672+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=122406) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2024-09-25T22:39:28.686+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'dag_with_postgres_hook_s3_v06', 'postgres_to_s3', 'scheduled__2024-03-07T00:00:00+00:00', '--job-id', '1289', '--raw', '--subdir', 'DAGS_FOLDER/dag_with_postgres_hooks_s3.py', '--cfg-path', '/tmp/tmpuxl0_9vz']
+[2024-09-25T22:39:28.817+0000] {standard_task_runner.py:72} INFO - Started process 122436 to run task
+[2024-09-25T22:39:28.922+0000] {standard_task_runner.py:105} INFO - Job 1289: Subtask postgres_to_s3
+[2024-09-25T22:39:29.359+0000] {task_command.py:467} INFO - Running <TaskInstance: dag_with_postgres_hook_s3_v06.postgres_to_s3 scheduled__2024-03-07T00:00:00+00:00 [running]> on host 1e186c4a8a03
+[2024-09-25T22:39:29.724+0000] {taskinstance.py:3131} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='chin' AIRFLOW_CTX_DAG_ID='dag_with_postgres_hook_s3_v06' AIRFLOW_CTX_TASK_ID='postgres_to_s3' AIRFLOW_CTX_EXECUTION_DATE='2024-03-07T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-03-07T00:00:00+00:00'
+[2024-09-25T22:39:29.784+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2024-09-25T22:39:29.834+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/utils/operator_helpers.py:175 AirflowContextDeprecationWarning: Accessing 'next_ds_nodash' from the template is deprecated and will be removed in a future version. Please use '{{ data_interval_end | ds_nodash }}' instead.
+[2024-09-25T22:39:29.954+0000] {base.py:84} INFO - Retrieving connection 'postgres_local'
+[2024-09-25T22:39:30.087+0000] {dag_with_postgres_hooks_s3.py:37} INFO - query b"select * from orders where date >='20240307' and date <= '20240308'":
+[2024-09-25T22:39:30.118+0000] {dag_with_postgres_hooks_s3.py:38} INFO - cursor 0:
+[2024-09-25T22:39:30.131+0000] {dag_with_postgres_hooks_s3.py:44} INFO - <cursor object at 0x7fc8837eae30; closed: 0>
+[2024-09-25T22:39:30.149+0000] {dag_with_postgres_hooks_s3.py:50} INFO - Saved orders data in text file: dags/get_orders_20240307.txt
+[2024-09-25T22:39:30.224+0000] {base.py:84} INFO - Retrieving connection 'minio_conn'
+[2024-09-25T22:39:30.247+0000] {connection_wrapper.py:388} INFO - AWS Connection (conn_id='minio_conn', conn_type='aws') credentials retrieved from login and password.
+[2024-09-25T22:39:31.886+0000] {dag_with_postgres_hooks_s3.py:62} INFO - Order file %s has been pushed to S3!, f.name
+[2024-09-25T22:39:31.903+0000] {python.py:240} INFO - Done. Returned value was: None
+[2024-09-25T22:39:31.978+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2024-09-25T22:39:32.024+0000] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=dag_with_postgres_hook_s3_v06, task_id=postgres_to_s3, run_id=scheduled__2024-03-07T00:00:00+00:00, execution_date=20240307T000000, start_date=20240925T223928, end_date=20240925T223932
+[2024-09-25T22:39:32.138+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2024-09-25T22:39:32.249+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

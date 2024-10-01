@@ -1,0 +1,27 @@
+[2024-09-25T00:00:11.169+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2024-09-25T00:00:11.223+0000] {taskinstance.py:2612} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: dag_with_postgres_operator_v04.delete_data_from_table scheduled__2024-09-24T00:00:00+00:00 [queued]>
+[2024-09-25T00:00:11.244+0000] {taskinstance.py:2612} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: dag_with_postgres_operator_v04.delete_data_from_table scheduled__2024-09-24T00:00:00+00:00 [queued]>
+[2024-09-25T00:00:11.249+0000] {taskinstance.py:2865} INFO - Starting attempt 1 of 1
+[2024-09-25T00:00:11.518+0000] {taskinstance.py:2888} INFO - Executing <Task(PostgresOperator): delete_data_from_table> on 2024-09-24 00:00:00+00:00
+[2024-09-25T00:00:11.532+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'dag_with_postgres_operator_v04', 'delete_data_from_table', 'scheduled__2024-09-24T00:00:00+00:00', '--job-id', '34', '--raw', '--subdir', 'DAGS_FOLDER/dag_with_postgres_operator.py', '--cfg-path', '/tmp/tmp3vkdfphh']
+[2024-09-25T00:00:11.539+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=2321) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2024-09-25T00:00:11.541+0000] {standard_task_runner.py:105} INFO - Job 34: Subtask delete_data_from_table
+[2024-09-25T00:00:11.549+0000] {standard_task_runner.py:72} INFO - Started process 2322 to run task
+[2024-09-25T00:00:11.764+0000] {task_command.py:467} INFO - Running <TaskInstance: dag_with_postgres_operator_v04.delete_data_from_table scheduled__2024-09-24T00:00:00+00:00 [running]> on host 1e186c4a8a03
+[2024-09-25T00:00:11.917+0000] {taskinstance.py:3131} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='chin' AIRFLOW_CTX_DAG_ID='dag_with_postgres_operator_v04' AIRFLOW_CTX_TASK_ID='delete_data_from_table' AIRFLOW_CTX_EXECUTION_DATE='2024-09-24T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-09-24T00:00:00+00:00'
+[2024-09-25T00:00:11.956+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2024-09-25T00:00:12.044+0000] {sql.py:266} INFO - Executing: 
+            delete from dag_runs where dt = '2024-09-24' and dag_id = 'dag_with_postgres_operator_v04'
+        
+[2024-09-25T00:00:12.088+0000] {base.py:84} INFO - Retrieving connection 'postgres_local'
+[2024-09-25T00:00:12.143+0000] {base.py:84} INFO - Retrieving connection 'postgres_local'
+[2024-09-25T00:00:12.165+0000] {sql.py:509} INFO - Running statement: 
+            delete from dag_runs where dt = '2024-09-24' and dag_id = 'dag_with_postgres_operator_v04'
+        , parameters: None
+[2024-09-25T00:00:12.179+0000] {sql.py:518} INFO - Rows affected: 0
+[2024-09-25T00:00:12.196+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2024-09-25T00:00:12.198+0000] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=dag_with_postgres_operator_v04, task_id=delete_data_from_table, run_id=scheduled__2024-09-24T00:00:00+00:00, execution_date=20240924T000000, start_date=20240925T000011, end_date=20240925T000012
+[2024-09-25T00:00:12.875+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2024-09-25T00:00:12.917+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/models/baseoperator.py:1378 AirflowProviderDeprecationWarning: Call to deprecated class PostgresOperator. (Please use `***.providers.common.sql.operators.sql.SQLExecuteQueryOperator`.Also, you can provide `hook_params={'schema': <database>}`.)
+[2024-09-25T00:00:12.965+0000] {taskinstance.py:3900} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2024-09-25T00:00:12.974+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

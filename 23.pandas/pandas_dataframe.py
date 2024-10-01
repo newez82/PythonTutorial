@@ -25,7 +25,7 @@ print(pd.__version__)
 
 a = [1, 7, 2]
 myvar = pd.Series(a)
-print(f"print 1 dimensional array: {myvar}")
+print(f"print 1 dimensional array:\n {myvar}")
 
 
 # the values are labeled with their index number. First value
